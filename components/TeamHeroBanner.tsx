@@ -1,8 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function TeamHeroBanner() {
+  const imgRef = useRef<HTMLDivElement>(null);
+  const imgInView = useInView(imgRef, { once: true, amount: 0.05 });
+
   return (
     <section className="bg-ink text-white overflow-hidden">
       <div className="container-px pt-28 pb-16 md:pt-36 md:pb-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
@@ -23,22 +27,30 @@ export default function TeamHeroBanner() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
-          whileInView={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-          className="aspect-[4/3] md:aspect-[16/12] w-full rounded-2xl overflow-hidden bg-white/5 group"
-        >
+        <div ref={imgRef} className="w-full">
+          <motion.div
+            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            animate={imgInView ? { clipPath: "inset(0 0 0% 0)", opacity: 1 } : {}}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            className="aspect-[4/3] md:aspect-[16/12] w-full rounded-2xl overflow-hidden bg-white/5 group"
+          >
           {/* eslint-disable-next-line @next/next/no-img-element */}
+
           <img
+
             src="/team.png"
+
             alt="Our team"
+
             decoding="async"
+
             fetchPriority="high"
+
             className="h-full w-full object-cover grayscale transition-transform duration-700 ease-out group-hover:scale-105"
+
           />
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

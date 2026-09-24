@@ -62,7 +62,7 @@ function Counter({
   }, [inView, to]);
 
   return (
-    <span className="font-display text-7xl leading-none sm:text-8xl">
+    <span className="font-display text-6xl leading-none sm:text-8xl">
       <span ref={ref}>
         {val}
       </span>
@@ -114,6 +114,10 @@ function Reveal({
 }
 
 export default function AboutIntro() {
+  // The white light runs only when the image scrolls into view.
+  const imageRef = useRef<HTMLDivElement>(null);
+  const runGold = useInView(imageRef, { once: true, amount: 0.35 });
+
   return (
     <section className="relative w-full overflow-hidden py-20 md:py-28">
       
@@ -163,7 +167,18 @@ export default function AboutIntro() {
           }}
           className="relative w-full self-start"
         >
+          {/* Shape of the image card: square left side, rounded corners on the right.
+              The outline below uses exactly the same path. */}
+          <svg width="0" height="0" className="absolute" aria-hidden="true" focusable="false">
+            <defs>
+              <clipPath id="aboutImageClip" clipPathUnits="objectBoundingBox">
+                <path d="M0,0 L0.82,0 Q0.96,0 0.96,0.16 L0.96,0.84 Q0.96,1 0.82,1 L0,1 Z" />
+              </clipPath>
+            </defs>
+          </svg>
+
           <div
+            ref={imageRef}
             className="
               relative
               aspect-video
@@ -173,11 +188,8 @@ export default function AboutIntro() {
               md:aspect-[16/11]
             "
             style={{
-              clipPath:
-                "polygon(0 0, 82% 0, 96% 22%, 96% 78%, 82% 100%, 0 100%)",
-
-              WebkitClipPath:
-                "polygon(0 0, 82% 0, 96% 22%, 96% 78%, 82% 100%, 0 100%)",
+              clipPath: "url(#aboutImageClip)",
+              WebkitClipPath: "url(#aboutImageClip)",
             }}
           >
 
@@ -231,15 +243,9 @@ export default function AboutIntro() {
               preserveAspectRatio="none"
               fill="none"
             >
+              {/* base outline (unchanged) */}
               <motion.path
-                d="
-                  M0,0
-                  L82,0
-                  L96,22
-                  L96,78
-                  L82,100
-                  L0,100
-                "
+                d="M0,0 L82,0 Q96,0 96,16 L96,84 Q96,100 82,100 L0,100"
                 vectorEffect="non-scaling-stroke"
                 stroke="rgba(255,255,255,0.55)"
                 strokeWidth="1"
@@ -256,6 +262,38 @@ export default function AboutIntro() {
                   duration: 1.6,
                   ease: "easeInOut",
                   delay: 0.2,
+                }}
+              />
+
+              {/* white light: two short streaks that start at the top-right
+                  corner and the bottom-left corner and glide clockwise, all
+                  the way around the inside of the photo (top-right -> down
+                  the right side -> bottom-left -> up the left side -> top
+                  right). Plays 2 laps when the image scrolls into view, then
+                  fades out. */}
+              <motion.path
+                d="M80.5,3.2 Q93.8,3.2 93.8,17 L93.8,83 Q93.8,96.8 80.5,96.8 L2.2,96.8 L2.2,3.2 Z"
+                vectorEffect="non-scaling-stroke"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="none"
+                style={{
+                  pathLength: 0.06,
+                  pathSpacing: 0.44,
+                  filter:
+                    "drop-shadow(0 0 4px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.45))",
+                }}
+                initial={{ pathOffset: 0, opacity: 0 }}
+                animate={
+                  runGold
+                    ? { pathOffset: [0, 2], opacity: [0, 1, 1, 0] }
+                    : { pathOffset: 0, opacity: 0 }
+                }
+                transition={{
+                  delay: 1.6,
+                  pathOffset: { duration: 7, ease: "linear" },
+                  opacity: { duration: 7, ease: "easeInOut", times: [0, 0.08, 0.92, 1] },
                 }}
               />
             </motion.svg>
@@ -423,6 +461,7 @@ export default function AboutIntro() {
             <h2
               className="
                 max-w-[850px]
+                text-balance
                 font-display
                 text-[2.1rem]
                 leading-[1.08]
@@ -469,7 +508,7 @@ export default function AboutIntro() {
               ABOUT LINK
               ====================================================== */}
 
-          <Reveal delay={0.34}>
+          <Reveal delay={0.34} className="order-3 md:order-none">
             <Link
               href="/about"
               className="
@@ -535,15 +574,7 @@ export default function AboutIntro() {
               ====================================================== */}
 
           <div
-            className="
-              mt-14
-              grid
-              grid-cols-1
-              items-start
-              gap-x-12
-              gap-y-8
-              sm:grid-cols-2
-            "
+            className="order-2 mt-10 grid grid-cols-2 items-start gap-x-6 gap-y-8 md:order-none md:mt-14 md:gap-x-12"
           >
 
             {/* ===================================================

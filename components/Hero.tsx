@@ -163,7 +163,7 @@ export default function Hero() {
         </h1>
 
         <motion.p
-          className="mt-5 ml-auto w-0 min-w-full max-w-[640px] text-right text-[clamp(0.85rem,3.6vw,1rem)] leading-[1.6] text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.9)] sm:mt-8 sm:w-auto sm:min-w-0 sm:text-[1.2rem] sm:leading-[1.75] md:text-[1.3rem]"
+          className="mt-5 ml-auto w-0 min-w-full max-w-[640px] text-right text-[clamp(1rem,4.4vw,1.2rem)] leading-[1.6] text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.9)] sm:mt-8 sm:w-auto sm:min-w-0 sm:text-[1.2rem] sm:leading-[1.75] md:text-[1.3rem]"
           {...fade(0.05)}
         >
           Every business has a backline. We&apos;re the strategic and
