@@ -18,7 +18,7 @@ export default function InsightsPage() {
           <p className="eyebrow">Insights</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display text-[2.4rem] sm:text-[3.4rem] md:text-[4.4rem] leading-[1.05] tracking-[-0.02em] mt-6 max-w-3xl">
+          <h1 className="font-display text-[clamp(1.75rem,8.8vw,2.4rem)] sm:text-[3.4rem] md:text-[4.4rem] leading-[1.05] tracking-[-0.02em] mt-6 max-w-3xl">
             Perspectives on building
             <br />
             <span className="text-accent">what&apos;s next.</span>

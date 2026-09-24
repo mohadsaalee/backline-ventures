@@ -33,6 +33,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -43,7 +44,7 @@ html {
 
 body {
   overflow-x: hidden;
-  max-width: 100vw;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);

@@ -120,7 +120,7 @@ export default function AboutPage() {
 
       {/* The formula */}
       <section className="container-px py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-x-10 gap-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-x-10 gap-y-8">
           <Reveal>
             <p className="eyebrow">Our Model</p>
           </Reveal>

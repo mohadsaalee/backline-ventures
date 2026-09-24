@@ -66,7 +66,7 @@ const capabilities: Capability[] = [
 
 function CapabilityVisual({ capability }: { capability: Capability }) {
   return (
-    <div className="relative flex h-full min-h-[320px] w-full flex-col items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-10 md:p-12">
+    <div className="relative flex h-full min-h-[320px] w-full flex-col items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6 sm:p-10 md:p-12">
       {/* subtle grid backdrop */}
       <div
         aria-hidden
@@ -98,7 +98,7 @@ function CapabilityVisual({ capability }: { capability: Capability }) {
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-[0.65rem] font-semibold text-white/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-2xl md:text-3xl uppercase tracking-[-0.01em] text-white">
+                <span className="min-w-0 break-words font-display text-xl sm:text-2xl md:text-3xl uppercase tracking-[-0.01em] text-white">
                   {step}
                 </span>
               </motion.div>
@@ -209,12 +209,12 @@ export default function ExecutionCapabilities() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 md:gap-10">
-          <Reveal delay={0.2} className="order-2 md:order-1">
+        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
+          <Reveal delay={0.2} className="order-2 min-w-0 md:order-1">
             <CapabilityVisual capability={active} />
           </Reveal>
 
-          <Reveal delay={0.24} className="order-1 md:order-2">
+          <Reveal delay={0.24} className="order-1 min-w-0 md:order-2">
             <div className="border-t border-white/15">
               {capabilities.map((c, i) => (
                 <AccordionItem

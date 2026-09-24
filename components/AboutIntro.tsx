@@ -375,6 +375,8 @@ export default function AboutIntro() {
             w-full
             flex-col
             self-start
+            px-6
+            md:px-0
           "
         >
 

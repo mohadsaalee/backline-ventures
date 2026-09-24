@@ -13,7 +13,7 @@ export default function TeamHeroBanner() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="eyebrow text-white/50">Our Team</p>
-          <h1 className="font-display text-[2.4rem] sm:text-[3.2rem] md:text-[3.8rem] leading-[1.05] tracking-[-0.02em] mt-6">
+          <h1 className="font-display text-[clamp(1.75rem,8.8vw,2.4rem)] sm:text-[3.2rem] md:text-[3.8rem] leading-[1.05] tracking-[-0.02em] mt-6">
             The people behind every partnership.
           </h1>
           <p className="mt-6 max-w-md text-white/60 leading-relaxed">
