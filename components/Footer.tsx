@@ -22,11 +22,6 @@ export default function Footer() {
             <p className="mt-4 text-sm tracking-[0.14em] uppercase text-bg/50">
               Strategic Venture Partner
             </p>
-            <p className="font-display text-xl mt-8 text-bg/80 leading-snug max-w-sm normal-case">
-              &ldquo;They built the business.
-              <br />
-              We build what&apos;s next.&rdquo;
-            </p>
           </div>
 
           {/* <nav className="grid grid-cols-2 gap-x-12 gap-y-3 sm:flex sm:flex-col">

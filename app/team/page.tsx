@@ -49,9 +49,6 @@ export default function TeamPage() {
                 </div>
                 <p className="mt-4 font-semibold">{member.name}</p>
                 <p className="text-ink-soft text-sm">{member.role}</p>
-                <p className="mt-1 text-xs uppercase tracking-wide text-ink-faint">
-                  {member.group}
-                </p>
               </div>
             </Reveal>
           ))}
@@ -84,9 +81,6 @@ export default function TeamPage() {
                 </div>
                 <p className="mt-4 font-semibold">{member.name}</p>
                 <p className="text-ink-soft text-sm">{member.role}</p>
-                <p className="mt-1 text-xs uppercase tracking-wide text-ink-faint">
-                  {member.group}
-                </p>
               </div>
             </Reveal>
           ))}

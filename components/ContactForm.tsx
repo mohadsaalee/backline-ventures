@@ -93,7 +93,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <div>
+      {/* <div>
         <label className="eyebrow block mb-3">
           What assets or capabilities do you have?
         </label>
@@ -113,9 +113,9 @@ export default function ContactForm() {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
 
-      <div>
+      {/* <div>
         <label className="eyebrow block mb-3">
           What opportunity are you exploring?
         </label>
@@ -135,7 +135,7 @@ export default function ContactForm() {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div>
         <label className="eyebrow block mb-2">Tell us about the opportunity.</label>

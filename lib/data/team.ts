@@ -14,7 +14,7 @@ export const leadership: TeamMember[] = [
     image: "/team/naval.webp",
   },
   {
-    name: "Thashreef",
+    name: "Tashreef",
     role: "Operating Partner / COO",
     group: "Leadership",
     image: "/team/thashreef.webp",
@@ -32,7 +32,7 @@ export const team: TeamMember[] = [
     name: "Naseef",
     role: "E-Commerce Consultant",
     group: "Team",
-    image: "/team/naseef.webp",
+    image: "/team/naseerf.webp",
   },
   {
     name: "Ameen",
