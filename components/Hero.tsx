@@ -129,7 +129,7 @@ export default function Hero() {
         <div className="w-fit max-w-full">
         <h1
           aria-label="BACKLINE VENTURES"
-          className="font-display text-[clamp(2.2rem,13vw,4.2rem)] leading-[0.88] tracking-[-0.045em] sm:text-[clamp(3.2rem,10.5vw,11.5rem)]"
+          className="font-display text-[clamp(4rem,14vw,11.5rem)] leading-[0.88] tracking-[-0.045em]"
         >
           {/* Each line reserves its full width invisibly, so nothing shifts while typing */}
           <span aria-hidden="true" className="relative block">
@@ -163,7 +163,7 @@ export default function Hero() {
         </h1>
 
         <motion.p
-          className="mt-5 ml-auto w-0 min-w-full max-w-[640px] text-right text-[clamp(1rem,4.4vw,1.2rem)] leading-[1.6] text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.9)] sm:mt-8 sm:w-auto sm:min-w-0 sm:text-[1.2rem] sm:leading-[1.75] md:text-[1.3rem]"
+          className="mt-8 ml-auto max-w-[640px] text-center text-[0.82rem] leading-[1.6] text-white sm:text-right sm:text-[1.2rem] sm:leading-[1.75] md:text-[1.3rem]"
           {...fade(0.05)}
         >
           Every business has a backline. We&apos;re the strategic and
@@ -171,43 +171,7 @@ export default function Hero() {
           what&apos;s next.
         </motion.p>
         </div>
-{/* 
-        <motion.div
-          className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
-          {...fade(0.2)}
-        >
-          <Link
-            href="/contact"
-            className="group relative inline-flex h-[50px] items-center gap-3 overflow-hidden rounded-full border border-white/25 bg-black px-7 text-[0.95rem] font-semibold uppercase tracking-[-0.01em] text-white transition-colors duration-300 hover:border-white/60"
-          >
-            Get started
-            <span className="transition-transform duration-300 group-hover:translate-x-0.5">
-              <Chevrons />
-            </span>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent"
-            />
-          </Link>
-
-          <Link
-            href="/how-we-build"
-            className="inline-flex h-[50px] items-center rounded-full bg-white px-7 text-[0.95rem] font-medium uppercase tracking-[-0.01em] text-black transition-opacity duration-300 hover:opacity-85"
-          >
-            Request a demo
-          </Link>
-        </motion.div> */}
       </div>
-
-      {/* Logo strip */}
-      {/* <motion.div
-        className="absolute inset-x-0 bottom-0 z-10 pb-9 sm:pb-11"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: ready ? 1 : 0 }}
-        transition={{ duration: 1.1, delay: 0.6 }}
-      >
-        <LogoMarquee />
-      </motion.div> */}
     </section>
   );
 }
