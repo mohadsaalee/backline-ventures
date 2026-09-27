@@ -12,7 +12,7 @@ function LogoContent({ company }: { company: Company }) {
         alt={company.name}
         loading="lazy"
         decoding="async"
-        className="max-h-5 md:max-h-6 w-auto object-contain grayscale opacity-80"
+        className="max-h-10 md:max-h-14 w-auto object-contain grayscale opacity-80"
       />
     );
   }
@@ -24,7 +24,6 @@ function LogoContent({ company }: { company: Company }) {
 }
 
 export default function Collaborators() {
-  // Duplicate the list so the marquee track can loop seamlessly (mobile only).
   const marqueeItems = [...companies, ...companies];
 
   return (
