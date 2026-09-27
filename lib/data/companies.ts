@@ -5,12 +5,7 @@ export type Company = {
 };
 
 export const companies: Company[] = [
-  { name: "Alzad", logo: "/alzad.png" },
-  { name: "Brandstrek", logo: "/brandstrek.png" },
-  { name: "PitchIn", logo: "/pitchin.png" },
-  { name: "Novara" },
-  { name: "Kestrel & Co" },
-  { name: "Meridian Foods" },
-  { name: "Alto Works" },
-  { name: "Fernbridge" },
+  { name: "Alzad", logo: "/patner/alzad.png" },
+  { name: "Brandstrek", logo: "/patner/Brandstrek.png" },
+  { name: "PichIn", logo: "/patner/pitchin.png" },
 ];

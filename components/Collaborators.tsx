@@ -1,11 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { companies, Company } from "@/lib/data/companies";
-
-const SLOT_COUNT = 8;
-const FLIP_INTERVAL = 1800; // ms between flips, one slot at a time
+import { Company } from "@/lib/data/companies";
+import { companies } from "@/lib/data/companies";
 
 function LogoContent({ company }: { company: Company }) {
   if (company.logo) {
@@ -21,30 +17,15 @@ function LogoContent({ company }: { company: Company }) {
     );
   }
   return (
-    <span className="font-display text-sm md:text-base tracking-tight text-ink/80">
+    <span className="font-display text-sm md:text-base tracking-tight text-ink/80 whitespace-nowrap">
       {company.name}
     </span>
   );
 }
 
 export default function Collaborators() {
-  const [indices, setIndices] = useState<number[]>(() =>
-    Array.from({ length: SLOT_COUNT }, (_, i) => i % companies.length)
-  );
-
-  useEffect(() => {
-    let tick = 0;
-    const timer = setInterval(() => {
-      const slot = tick % SLOT_COUNT;
-      setIndices((prev) => {
-        const next = [...prev];
-        next[slot] = (next[slot] + 1) % companies.length;
-        return next;
-      });
-      tick += 1;
-    }, FLIP_INTERVAL);
-    return () => clearInterval(timer);
-  }, []);
+  // Duplicate the list so the marquee track can loop seamlessly (mobile only).
+  const marqueeItems = [...companies, ...companies];
 
   return (
     <section className="bg-bg-warm py-14 md:py-16">
@@ -53,31 +34,30 @@ export default function Collaborators() {
           Our Partners
         </p>
 
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-          {indices.map((companyIndex, slot) => {
-            const company = companies[companyIndex];
-            return (
+        {/* Mobile: single-line auto-scrolling marquee */}
+        <div className="mt-8 md:hidden overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="marquee-track gap-3">
+            {marqueeItems.map((company, i) => (
               <div
-                key={slot}
-                className="flex items-center justify-center h-16 md:h-20 rounded-xl bg-bg shadow-sm px-4 overflow-hidden"
-                style={{ perspective: 1000 }}
+                key={`${company.name}-${i}`}
+                className="flex items-center justify-center h-16 rounded-xl bg-bg shadow-sm px-6 shrink-0"
               >
-                <AnimatePresence mode="popLayout">
-                  <motion.div
-                    key={`${slot}-${company.name}`}
-                    initial={{ rotateX: -100, opacity: 0, y: 6 }}
-                    animate={{ rotateX: 0, opacity: 1, y: 0 }}
-                    exit={{ rotateX: 100, opacity: 0, y: -6 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex items-center justify-center"
-                    style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
-                  >
-                    <LogoContent company={company} />
-                  </motion.div>
-                </AnimatePresence>
+                <LogoContent company={company} />
               </div>
-            );
-          })}
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop / tablet: static grid */}
+        <div className="mt-8 hidden md:grid grid-cols-4 gap-4">
+          {companies.map((company) => (
+            <div
+              key={company.name}
+              className="flex items-center justify-center h-20 rounded-xl bg-bg shadow-sm px-4 overflow-hidden"
+            >
+              <LogoContent company={company} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export const team: TeamMember[] = [
     name: "Naseef",
     role: "E-Commerce Consultant",
     group: "Team",
-    image: "/team/naseerf.webp",
+    image: "/team/naseef.webp",
   },
   {
     name: "Ameen",
@@ -44,7 +44,7 @@ export const team: TeamMember[] = [
     name: "Althaf",
     role: "Project Manager",
     group: "Team",
-    image: "/team/althaf-project-manager.webp",
+    image: "/team/althaf.webp",
   },
   {
     name: "Swalik",
@@ -113,16 +113,10 @@ export const team: TeamMember[] = [
     image: "/team/ajser.webp",
   },
   {
-    name: "Adithya",
-    role: "Events Coordinator",
+    name: "Adithya Shankar",
+    role: "Software Engineer",
     group: "Team",
     image: "/team/adithya.webp",
-  },
-  {
-    name: "Nihal",
-    role: "Marketing Specialist",
-    group: "Team",
-    image: "/team/nihal.webp",
   },
   {
     name: "Althaf",
@@ -135,5 +129,17 @@ export const team: TeamMember[] = [
     role: "Marketing Executive",
     group: "Team",
     image: "/team/faheem.webp",
+  },
+    {
+    name: "Adithya",
+    role: "Events Coordinator",
+    group: "Team",
+    image: "/team/adithyas.webp",
+  },
+      {
+    name: "haris hussain",
+    role: "Events Coordinator",
+    group: "Team",
+    image: "/team/haris.webp",
   },
 ];
