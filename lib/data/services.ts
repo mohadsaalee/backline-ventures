@@ -113,7 +113,7 @@ export const services: ServiceDetail[] = [
     ],
   },
   {
-    slug: "business-partner",
+    slug: "managing-partner",
     number: "02",
     title: "Business Management",
     headline: "We don't only build businesses. We can also fix and operate them.",

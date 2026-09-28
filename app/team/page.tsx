@@ -88,13 +88,13 @@ export default function TeamPage() {
       </section>
 
       {/* Joining note */}
-      <section className="container-px py-24 md:py-32">
+      {/* <section className="container-px py-24 md:py-32">
         <SectionHeading
           eyebrow="Growing the team"
           title="We build the team around the venture."
           description="As new partnerships come on board, we bring in the specific brand, product, technology or legal capability each opportunity needs — rather than staffing up before there's a venture to staff for."
         />
-      </section>
+      </section> */}
 
       <CTA />
     </>

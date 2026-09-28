@@ -11,4 +11,5 @@ export const companies: Company[] = [
   { name: "kaffaway", logo: "/patner/kaffaway.webp" },
   { name: "xchool", logo: "/patner/xchool.webp" },
   { name: "workhex", logo: "/patner/workhex.webp" },
+  { name: "planotech.webp", logo: "/patner/planotech.webp" },
 ];

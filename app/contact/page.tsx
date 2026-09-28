@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import ContactForm from "@/components/ContactForm";
+import ContactImage from "@/components/ContactImage";
+import LocationMaps from "@/components/LocationMaps";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -48,7 +50,8 @@ function InstagramIcon() {
 
 export default function ContactPage() {
   return (
-    <section className="container-px pt-40 pb-28 md:pt-52 md:pb-36">
+    <>
+    <section className="container-px pt-40 pb-16 md:pt-52 md:pb-20">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-24">
         <div>
           <Reveal>
@@ -104,10 +107,17 @@ export default function ContactPage() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15}>
-          <ContactForm />
+        <Reveal delay={0.15} className="h-full">
+          <ContactImage />
         </Reveal>
       </div>
     </section>
+
+    <section className="container-px pb-28 md:pb-36">
+      <div className="mt-12">
+        <LocationMaps />
+      </div>
+    </section>
+    </>
   );
 }

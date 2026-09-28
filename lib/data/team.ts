@@ -14,8 +14,8 @@ export const leadership: TeamMember[] = [
     image: "/team/naval.webp",
   },
   {
-    name: "Tashreef",
-    role: "Operating Partner / COO",
+    name: "Thashrif",
+    role: "Operating Partner",
     group: "Leadership",
     image: "/team/thashreef.webp",
   },
@@ -28,6 +28,12 @@ export const leadership: TeamMember[] = [
 ];
 
 export const team: TeamMember[] = [
+  {
+    name: "haris hussain",
+    role: "Bussiness Consultant",
+    group: "Team",
+    image: "/team/haris.webp",
+  },
   {
     name: "Naseef",
     role: "E-Commerce Consultant",
@@ -46,6 +52,12 @@ export const team: TeamMember[] = [
     group: "Team",
     image: "/team/althaf.webp",
   },
+    {
+    name: "Athul",
+    role: "CTO & Technology Consultant",
+    group: "Team",
+    image: "/team/athul.webp",
+  },
   {
     name: "Swalik",
     role: "Project Manager",
@@ -60,7 +72,7 @@ export const team: TeamMember[] = [
   // },
   {
     name: "Sneha",
-    role: "Human Resources Executive",
+    role: "Human Resources Manager",
     group: "Team",
     image: "/team/sneha.webp",
   },
@@ -94,52 +106,41 @@ export const team: TeamMember[] = [
   //   group: "Team",
   //   image: "/team/adarsh.webp",
   // },
-  // {
-  //   name: "Afthab",
-  //   role: "Head of Operations & Technology",
-  //   group: "Team",
-  //   image: "/team/afthab.webp",
-  // },
+  {
+    name: "Afthab",
+    role: "Head of Operations & Technology",
+    group: "Team",
+    image: "/team/afthab.webp",
+  },
   {
     name: "Minhaz",
     role: "Sales Manager",
     group: "Team",
     image: "/team/minhaz.webp",
   },
-  // {
-  //   name: "Ajser",
-  //   role: "Creative Director",
-  //   group: "Team",
-  //   image: "/team/ajser.webp",
-  // },
+  {
+    name: "Ajser",
+    role: "Creative Director",
+    group: "Team",
+    image: "/team/ajser.webp",
+  },
   {
     name: "Adithya Shankar",
     role: "Technical Officer",
     group: "Team",
-    image: "/team/adithya.webp",
+    image: "/team/adithyashanker.webp",
   },
-  // {
-  //   name: "Althaf",
-  //   role: "Technical Officer",
-  //   group: "Team",
-  //   image: "/team/althaf-technical-officer.webp",
-  // },
   {
     name: "Faheem",
     role: "Marketing Executive",
     group: "Team",
     image: "/team/faheem.webp",
   },
-  //   {
-  //   name: "Adithya",
-  //   role: "Events Coordinator",
-  //   group: "Team",
-  //   image: "/team/adithyas.webp",
-  // },
-      {
-    name: "haris hussain",
+    {
+    name: "Adithya",
     role: "Events Coordinator",
     group: "Team",
-    image: "/team/haris.webp",
+    image: "/team/adithya.webp",
   },
+
 ];
