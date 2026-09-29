@@ -6,7 +6,6 @@ import TeamGrid from "@/components/TeamGrid";
 import StoryStats from "@/components/StoryStats";
 import SelectionCriteria from "@/components/SelectionCriteria";
 import { idealPartners, selectionCriteria } from "@/lib/data/partnerships";
-import ourTeam from "@/public/images/our-team.jpg";
 import ModelFormula from "@/components/ModelFormula";
 import ValuesSection from "@/components/ValuesSection"; 
 
@@ -19,36 +18,18 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="container-px pt-28 pb-16 md:pt-36 md:pb-20">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <Reveal>
-            <h1 className="font-display text-[2.8rem] sm:text-[4rem] md:text-[5.2rem] leading-[0.95] tracking-[-0.02em]">
-              ABOUT
-              <br />
-              BACKLINE
-            </h1>
-          </Reveal>
-          <Reveal delay={0.15} className="md:text-right">
-            <p className="text-ink-soft text-lg max-w-xs md:ml-auto">
-              They built the business. We build what&apos;s next.
-            </p>
-          </Reveal>
-        </div>
-      </section>
       {/* Full-width banner */}
-      <section className="container-px pb-20 md:pb-28">
+      <section className="container-px pt-[88px] pb-20 md:pb-28">
         <Reveal delay={0.1}>
-          <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden bg-ink">
+          <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden bg-bg-warm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/backline-image-2.avif"
+              src="/team.png"
               alt="BACKLINE VENTURES"
               decoding="async"
               fetchPriority="high"
-              className="h-full w-full object-cover grayscale contrast-125 brightness-[0.55]"
+              className="h-full w-full object-cover grayscale"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
           </div>
         </Reveal>
       </section>
@@ -135,8 +116,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-
       {/* Core Values */}
       <ValuesSection />
 
@@ -199,7 +178,7 @@ export default function AboutPage() {
         <SelectionCriteria items={selectionCriteria} />
       </section>
 
-      <TeamGrid />
+      {/* <TeamGrid /> */}
 
       <CTA />
     </>

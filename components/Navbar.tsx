@@ -120,16 +120,12 @@ export default function Navbar() {
             `}
             onClick={() => setIsMenuOpen(false)}
           >
-            <span
-              className="
-                text-[19px]
-                font-bold
-                tracking-[-0.04em]
-                md:text-[21px]
-              "
-            >
-              BACKLINE
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/backline.png"
+              alt="BACKLINE"
+              className="h-[46px] w-auto md:h-[52px]"
+            />
           </Link>
 
           {/* CENTER — NAVIGATION */}

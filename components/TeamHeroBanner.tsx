@@ -38,7 +38,7 @@ export default function TeamHeroBanner() {
 
           <img
 
-            src="/team.png"
+            src="/team2.png"
 
             alt="Our team"
 

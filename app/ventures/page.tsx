@@ -14,25 +14,42 @@ export default function VenturesPage() {
   return (
     <>
       <section className="container-px pt-28 pb-16 md:pt-36 md:pb-20">
-        <Reveal>
-          <p className="eyebrow">Ventures</p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="font-display text-[clamp(1.75rem,8.8vw,2.4rem)] sm:text-[3.4rem] md:text-[4.4rem] leading-[1.05] tracking-[-0.02em] mt-6 max-w-3xl">
-            Businesses, ventures and
-            <br />
-            <span className="text-accent">
-              opportunities built from existing strength.
-            </span>
-          </h1>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 max-w-xl text-ink-soft leading-relaxed text-sm">
-            These are illustrative venture scenarios, clearly labeled, used
-            to demonstrate how a BACKLINE partnership works in practice.
-            Real case studies will appear here as ventures are built.
-          </p>
-        </Reveal>
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-14 items-center">
+          <div>
+            <Reveal>
+              <p className="eyebrow">Ventures</p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h1 className="font-display text-[clamp(1.75rem,8.8vw,2.4rem)] sm:text-[3.4rem] lg:text-[2.2rem] xl:text-[3.6rem] leading-[1.05] tracking-[-0.02em] mt-6 max-w-3xl">
+                Businesses, ventures and
+                <br />
+                <span className="text-accent">
+                  opportunities built from existing strength
+                </span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-8 max-w-xl text-ink-soft leading-relaxed text-sm">
+                These are illustrative venture scenarios, clearly labeled, used
+                to demonstrate how a BACKLINE partnership works in practice.
+                Real case studies will appear here as ventures are built.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.15}>
+            <div className="w-full rounded-2xl overflow-hidden bg-bg-warm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/grid.png"
+                alt="BACKLINE VENTURES"
+                decoding="async"
+                fetchPriority="high"
+                className="block h-auto w-full"
+              />
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       <section className="container-px py-10 md:py-14">

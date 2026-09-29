@@ -41,10 +41,10 @@ export default function Footer() {
           <p>© 2026 BACKLINE VENTURES. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a
-              href="mailto:hello@backlineventures.example"
+              href="mailto:info@backlineventures.com"
               className="underline-link hover:text-bg transition-colors"
             >
-              hello@backlineventures.example
+              info@backlineventures.com
             </a>
             <a
               href="https://linkedin.com"
