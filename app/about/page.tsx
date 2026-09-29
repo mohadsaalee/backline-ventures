@@ -151,7 +151,7 @@ export default function AboutPage() {
             <div className="mt-8 sm:mt-12 flex flex-wrap gap-2 sm:gap-3">
               {idealPartners.map((item, i) => (
                 <Reveal key={item} delay={0.06 + i * 0.03}>
-                  <span className="inline-block max-w-full rounded-full border border-bg/25 px-4 py-2 text-[0.8rem] sm:px-5 sm:py-2.5 sm:text-sm text-bg/90 hover:border-bg hover:bg-bg hover:text-ink transition-colors duration-300">
+                  <span className="inline-block max-w-full rounded-2xl sm:rounded-full border border-bg/25 px-4 py-2 text-[0.8rem] leading-snug sm:px-5 sm:py-2.5 sm:text-sm text-bg/90 hover:border-bg hover:bg-bg hover:text-ink transition-colors duration-300">
                     {item}
                   </span>
                 </Reveal>
