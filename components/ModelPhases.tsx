@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 type Phase = {
@@ -40,6 +40,17 @@ const spring = { type: "spring", stiffness: 500, damping: 42, mass: 0.9 } as con
 
 export default function ModelPhases() {
   const [active, setActive] = useState(0);
+  // Mobile-first: stacked cards with natural height. Desktop: side-by-side
+  // accordion driven by flex-grow.
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   return (
     <LayoutGroup>
@@ -49,20 +60,24 @@ export default function ModelPhases() {
           return (
             <motion.div
               key={phase.number}
-              layout
+              layout={isDesktop}
               transition={spring}
-              onMouseEnter={() => setActive(i)}
+              onMouseEnter={() => isDesktop && setActive(i)}
               onClick={() => setActive(i)}
-              className={`relative cursor-pointer overflow-hidden rounded-xl flex flex-col justify-between p-6 md:p-8 min-h-[120px] md:min-h-0 ${
+              className={`relative cursor-pointer overflow-hidden rounded-xl flex flex-col justify-between p-5 md:p-8 min-h-[96px] md:min-h-0 ${
                 isActive ? "bg-ink text-bg" : "bg-bg text-ink"
               }`}
-              style={{
-                flexGrow: isActive ? 3.4 : 1,
-                flexBasis: 0,
-              }}
+              style={
+                isDesktop
+                  ? { flexGrow: isActive ? 3.4 : 1, flexBasis: 0 }
+                  : undefined
+              }
             >
               {/* Header row */}
-              <motion.div layout="position" className="flex items-center justify-between">
+              <motion.div
+                layout={isDesktop ? "position" : false}
+                className="flex items-center justify-between"
+              >
                 <span
                   className={`font-display text-sm md:text-base ${
                     isActive ? "text-white/80" : "text-ink-faint"
@@ -93,17 +108,32 @@ export default function ModelPhases() {
               )}
 
               {/* Expanded content */}
-              <AnimatePresence mode="popLayout">
+              <AnimatePresence
+                mode={isDesktop ? "popLayout" : "sync"}
+                initial={false}
+              >
                 {isActive && (
                   <motion.div
                     key="content"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.18, ease: "easeOut" }}
-                    className="mt-auto"
+                    initial={
+                      isDesktop
+                        ? { opacity: 0 }
+                        : { opacity: 0, height: 0 }
+                    }
+                    animate={
+                      isDesktop
+                        ? { opacity: 1 }
+                        : { opacity: 1, height: "auto" }
+                    }
+                    exit={
+                      isDesktop
+                        ? { opacity: 0 }
+                        : { opacity: 0, height: 0 }
+                    }
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="mt-4 md:mt-auto overflow-hidden md:overflow-visible"
                   >
-                    <h3 className="font-display text-2xl md:text-3xl leading-tight">
+                    <h3 className="font-display text-xl sm:text-2xl md:text-3xl leading-tight break-words">
                       {phase.title}
                     </h3>
                     <p className="mt-3 text-sm md:text-base leading-relaxed text-white/60 max-w-md">
@@ -115,7 +145,7 @@ export default function ModelPhases() {
 
               {/* Mobile: always show title */}
               {!isActive && (
-                <span className="md:hidden font-display text-lg text-ink-faint">
+                <span className="md:hidden mt-4 font-display text-lg text-ink-faint">
                   {phase.title}
                 </span>
               )}
