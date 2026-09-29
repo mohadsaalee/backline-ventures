@@ -21,14 +21,14 @@ export default function AboutPage() {
       {/* Full-width banner */}
       <section className="container-px pt-[88px] pb-6 md:pb-28">
         <Reveal delay={0.1}>
-          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] rounded-lg overflow-hidden bg-bg-warm">
+          <div className="relative w-full md:aspect-[21/9] rounded-lg overflow-hidden bg-bg-warm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/team.png"
               alt="BACKLINE VENTURES"
               decoding="async"
               fetchPriority="high"
-              className="h-full w-full object-cover grayscale"
+              className="block h-auto w-full md:h-full md:object-cover grayscale"
             />
           </div>
         </Reveal>
